@@ -1,0 +1,14 @@
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+  document.querySelectorAll('.toggle-row').forEach(row=>{
+    row.querySelectorAll('.toggle-pill').forEach(pill=>{
+      pill.addEventListener('click',()=>{
+        row.querySelectorAll('.toggle-pill').forEach(p=>p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+  });
