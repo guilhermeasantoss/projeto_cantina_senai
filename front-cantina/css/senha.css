@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --coffee:      #2E1B12;
+  --cream:       #F4E6D2;
+  --amber:       #D97E17;
+  --amber-light: #FCE3B8;
+  --white:       #FFFFFF;
+  --line:        #EADFCB;
+  --gray:        #7a5f47;
+  --ok:          #15803d;
+  --err:         #b91c1c;
+  --radius:      12px;
+  --shadow:      0 4px 20px rgba(46,27,18,0.12);
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--coffee);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* ── CARD CENTRAL ── */
+.senha-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: var(--shadow);
+}
+
+.senha-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  text-decoration: none;
+  color: var(--coffee);
+}
+.senha-logo__text {
+  font-weight: 800;
+  font-size: 1rem;
+}
+.senha-logo__text small {
+  display: block;
+  font-size: .72rem;
+  font-weight: 400;
+  color: var(--amber);
+}
+
+.senha-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.senha-sub {
+  font-size: .85rem;
+  color: var(--gray);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+
+/* ── CAMPOS ── */
+.senha-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.senha-field label {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.senha-input-wrap {
+  position: relative;
+}
+
+.senha-field input {
+  width: 100%;
+  padding: 11px 42px 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  font-size: .9rem;
+  font-family: 'Poppins', sans-serif;
+  color: var(--coffee);
+  background: var(--white);
+  transition: border-color .15s, box-shadow .15s;
+}
+.senha-field input:focus {
+  outline: none;
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(217,126,23,0.15);
+}
+.senha-field input.is-error { border-color: var(--err); }
+.senha-field input.is-ok    { border-color: var(--ok); }
+
+.senha-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--gray);
+  padding: 4px;
+}
+.senha-eye:hover { color: var(--coffee); }
+
+/* ── FORÇA DA SENHA ── */
+.senha-strength {
+  margin-bottom: 20px;
+}
+.senha-strength-bar {
+  height: 6px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.senha-strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width .3s, background .3s;
+}
+.senha-strength-label {
+  font-size: .75rem;
+  color: var(--gray);
+}
+
+/* ── REQUISITOS ── */
+.senha-requisitos {
+  background: var(--cream);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 24px;
+}
+.senha-requisitos p {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+.senha-req-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .78rem;
+  color: var(--gray);
+  margin-bottom: 4px;
+  transition: color .2s;
+}
+.senha-req-item.ok { color: var(--ok); }
+.senha-req-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line);
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.senha-req-item.ok .senha-req-dot { background: var(--ok); }
+
+/* ── BOTÃO ── */
+.senha-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, #EE9B2E, #D97E17);
+  color: var(--white);
+  font-size: .95rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 14px rgba(217,126,23,0.4);
+  margin-bottom: 16px;
+}
+.senha-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(217,126,23,0.5);
+}
+.senha-btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── ERRO / SUCESSO ── */
+.senha-error, .senha-success {
+  font-size: .84rem;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  display: none;
+}
+.senha-error   { background: #fee2e2; color: var(--err); }
+.senha-success { background: #dcfce7; color: var(--ok); }
+.senha-error.show, .senha-success.show { display: block; }
+
+/* ── LINK VOLTAR ── */
+.senha-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: .82rem;
+  color: var(--gray);
+  text-decoration: none;
+  transition: color .15s;
+}
+.senha-back:hover { color: var(--coffee); }
+
+/* ── RESPONSIVO ── */
+@media (max-width: 480px) {
+  .senha-card { padding: 28px 20px; }
+}

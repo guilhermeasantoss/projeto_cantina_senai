@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cantina Sabor & Cia — Cardápio online do SENAI Tatuapé. Faça sua reserva de refeição com facilidade.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="shortcut icon" href="img/Redes Sociais/coffee-cup.png" type="image/x-icon">
+  <title>Cantina Sabor & Cia — SENAI Tatuapé</title>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+
+      <a href="index.html" class="logo">
+        <span>Cantina <span class="senai">Sabor &amp; Cia</span></span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="active">Cardápio</a>
+        <a href="pages/reserva.html">Minhas reservas</a>
+        <a href="pages/perfil.html">Meu perfil</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Buscar prato, categoria..." aria-label="Buscar no cardápio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="#9C8C79" stroke-width="2"/>
+            <path d="M21 21l-4.3-4.3" stroke="#9C8C79" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <a href="pages/carrinho.html" class="cart-btn" id="cartBtnHeader" aria-label="Carrinho">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" id="cartBadgeHeader">0</span>
+        </a>
+        <a href="pages/login.html" class="filter-btn" id="btnEntrar" style="text-decoration:none">Entrar</a>
+        <a href="pages/perfil.html" class="c-user" id="headerUser" style="display:none; text-decoration:none">
+          <span class="c-user__avatar" id="headerAvatar">?</span>
+          <span id="headerNome">Entrar</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ONDA no rodapé do header -->
+    <div class="header-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C 240,75 480,5 720,32 C 960,60 1200,10 1440,40 L1440,80 L0,80 Z"/>
+      </svg>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO / CARROSSEL -->
+    <section class="hero">
+      <p class="hero-eyebrow">Cardápio de hoje</p>
+      <h1>O que manda hoje?</h1>
+
+      <div class="hero-card">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="img/produtos/prato.jpg" class="d-block w-100" alt="Prato do dia">
+              <div class="carousel-caption-custom">
+                <span class="carousel-dish-name">Prato do Dia</span>
+                <span class="carousel-dish-desc">Arroz, feijão, proteína grelhada e salada</span>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="img/produtos/hamburgao.jpg" class="d-block w-100" alt="Hamburgão Artesanal">
+              <div class="carousel-caption-custom">
+                <span class="carousel-dish-name">Hamburgão Artesanal</span>
+                <span class="carousel-dish-desc">Pão brioche, carne 180g, queijo e molho especial</span>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="img/produtos/receita-de-sanduiche-natural.jpg" class="d-block w-100" alt="Sanduíche Natural">
+              <div class="carousel-caption-custom">
+                <span class="carousel-dish-name">Sanduíche Natural</span>
+                <span class="carousel-dish-desc">Frango, salada, tomate e maionese caseira</span>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
+          </button>
+        </div>
+        <span class="hero-tag">Cardápio atualizado diariamente</span>
+        <a href="pages/reserva.html" class="hero-cta">Fazer reserva →</a>
+      </div>
+
+      <hr class="divisoria">
+    </section>
+
+    <!-- MENU / CATEGORIAS -->
+    <section class="menu-section" id="menu">
+      <h2 class="section-title">Cardápio</h2>
+      <p class="section-sub">Alguma ideia para hoje?</p>
+      <div class="filter-row" id="categoryFilters">
+        <button class="filter-btn active" data-cat="todos">Todos os pratos</button>
+        <button class="filter-btn" data-cat="lanches">🍔 Lanches</button>
+        <button class="filter-btn" data-cat="refeicoes">🍽️ Refeições</button>
+        <button class="filter-btn" data-cat="bebidas">🥤 Bebidas</button>
+        <button class="filter-btn" data-cat="salgados">🥐 Salgados</button>
+        <button class="filter-btn" data-cat="sobremesas">🍮 Sobremesas</button>
+      </div>
+
+      <!-- Grade de produtos -->
+      <div class="product-grid" id="productGrid">
+        <!-- Preenchido via home.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <nav class="redes">
+      <a href="https://www.facebook.com/senaisaopaulo" target="_blank"><img src="img/Redes Sociais/face.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/senai.sp/" target="_blank"><img src="img/Redes Sociais/instagram.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/channel/UCaz1BMUVug86pd_uS598X1A" target="_blank"><img src="img/Redes Sociais/youtube.png" alt="YouTube"></a>
+      <a href="https://x.com/senaisaopaulo" target="_blank"><img src="img/Redes Sociais/twitter.png" alt="Twitter"></a>
+      <a href="https://br.linkedin.com/school/senaisp/" target="_blank"><img src="img/Redes Sociais/linkedin.png" alt="LinkedIn"></a>
+      <a href="https://api.whatsapp.com/send?phone=551133220050" target="_blank"><img src="img/Redes Sociais/whatsapp.png" alt="WhatsApp"></a>
+    </nav>
+
+    <section class="contato">
+      <p>
+        <span class="titulo">SENAI Tatuapé — "Frederico Jacob"</span><br>
+        Rua São Jorge, 634 · Tatuapé · São Paulo/SP · CEP 03087-000
+      </p>
+      <p>
+        <span class="titulo">Central de Relacionamento:</span><br>
+        (11) 2227-8020 (Telefone / WhatsApp)<br>
+        senaimanutencao@sp.senai.br
+      </p>
+    </section>
+
+    <section class="direitos">
+      <p>Copyright 2025 © Todos os direitos reservados.</p>
+      <p>Web-design · Front-end &amp; Back-end</p>
+      <h2>Cantina</h2>
+    </section>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

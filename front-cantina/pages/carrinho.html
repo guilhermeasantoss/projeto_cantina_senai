@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantina – Carrinho</title>
+  <link rel="shortcut icon" href="../img/Redes Sociais/coffee-cup.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/carrinho.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="c-header">
+    <div class="c-header__inner">
+      <a href="../index.html" class="c-logo">
+        <span class="c-logo__text">Cantina <small>Sabor &amp; Cia</small></span>
+      </a>
+      <nav class="c-nav">
+        <a href="../index.html" class="c-nav__link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Cardápio
+        </a>
+        <a href="reserva.html" class="c-nav__link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Minhas reservas
+        </a>
+        <a href="perfil.html" class="c-nav__link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Meus dados
+        </a>
+      </nav>
+      <div class="c-header__actions">
+        <a href="carrinho.html" class="c-cart c-cart--active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="c-cart__badge" id="headerBadge">0</span>
+        </a>
+        <a href="perfil.html" class="c-user">
+          <span class="c-user__avatar" id="headerAvatar">?</span>
+          <span id="headerNome">Entrar</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="c-main">
+
+    <!-- COLUNA ESQUERDA: itens -->
+    <div class="c-left">
+
+      <div class="c-page-title-row">
+        <div>
+          <h1 class="c-page-title">Meu carrinho</h1>
+          <p class="c-page-sub">Revise seus itens antes de finalizar a reserva.</p>
+        </div>
+        <a href="reserva.html" class="c-btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          Continuar comprando
+        </a>
+      </div>
+
+      <!-- Barra de progresso de etapas -->
+      <div class="c-steps">
+        <div class="c-step c-step--done">
+          <span class="c-step__dot">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </span>
+          <span>Itens</span>
+        </div>
+        <div class="c-step__line"></div>
+        <div class="c-step c-step--active">
+          <span class="c-step__dot">2</span>
+          <span>Revisão</span>
+        </div>
+        <div class="c-step__line"></div>
+        <div class="c-step">
+          <span class="c-step__dot">3</span>
+          <span>Confirmação</span>
+        </div>
+      </div>
+
+      <!-- Lista de itens -->
+      <div class="c-items-card">
+        <div class="c-items-header">
+          <span id="itemCount">0 itens</span>
+          <button class="c-clear-btn" id="clearBtn">Limpar carrinho</button>
+        </div>
+        <div id="itemList" class="c-item-list">
+          <!-- preenchido via JS -->
+        </div>
+      </div>
+
+      <!-- Cupom de desconto -->
+      <div class="c-coupon-card">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+        <input type="text" id="couponInput" placeholder="Código de desconto" class="c-coupon-input">
+        <button class="c-coupon-btn" id="couponBtn">Aplicar</button>
+      </div>
+      <p class="c-coupon-msg" id="couponMsg"></p>
+
+    </div>
+
+    <!-- COLUNA DIREITA: resumo -->
+    <aside class="c-summary">
+
+      <h2 class="c-summary__title">Resumo do pedido</h2>
+
+      <!-- Data e hora de retirada -->
+      <div class="c-pickup-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <label>Data de retirada</label>
+          <input type="date" id="pickupDate" class="c-pickup-input">
+        </div>
+        <div>
+          <label>Horário</label>
+          <input type="time" id="pickupTime" value="12:00" class="c-pickup-input">
+        </div>
+      </div>
+
+      <!-- Totais -->
+      <div class="c-totals">
+        <div class="c-total-row">
+          <span>Subtotal</span>
+          <span id="subtotal">R$ 0,00</span>
+        </div>
+        <div class="c-total-row" id="discountRow" style="display:none">
+          <span>Desconto</span>
+          <span id="discountVal" class="c-discount-val">− R$ 0,00</span>
+        </div>
+        <div class="c-total-row">
+          <span>Taxa de serviço</span>
+          <span id="serviceFee">R$ 0,00</span>
+        </div>
+        <div class="c-total-divider"></div>
+        <div class="c-total-row c-total-row--final">
+          <span>Total</span>
+          <span id="total" class="c-total-val">R$ 0,00</span>
+        </div>
+      </div>
+
+      <button class="c-btn-primary" id="finalizarBtn">
+        Finalizar reserva
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+      <p class="c-secure">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Seus dados estão seguros conosco.
+      </p>
+
+      <!-- Sugestões -->
+      <div class="c-suggest">
+        <p class="c-suggest__title">Adicionar ao pedido</p>
+        <div class="c-suggest__list" id="suggestList"></div>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <!-- ESTADO VAZIO (overlay quando não tem itens) -->
+  <div class="c-empty" id="emptyState">
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    <h2>Seu carrinho está vazio</h2>
+    <p>Explore o cardápio e adicione itens para fazer sua reserva.</p>
+    <a href="reserva.html" class="c-btn-primary">Ver cardápio</a>
+  </div>
+
+  <script src="../js/carrinho.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cantina – Entrar / Cadastro</title>
+  <link rel="shortcut icon" href="../img/Redes Sociais/coffee-cup.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+
+<div class="ac" id="ac">
+
+  <!-- PAINEL VISUAL -->
+  <div class="ac__panel">
+    <div class="ac__panel-overlay"></div>
+    <img class="ac__panel-img ac__panel-img--a" src="../img/produtos/prato.jpg" alt="">
+    <img class="ac__panel-img ac__panel-img--b" src="../img/produtos/receita-de-sanduiche-natural.jpg" alt="">
+    <div class="ac__panel-body">
+      <a href="../index.html" class="ac__logo">
+        <span class="ac__logo-text">Cantina <small>Sabor &amp; Cia</small></span>
+      </a>
+      <div class="ac__panel-msg">
+        <p class="ac__tagline" id="panelTagline">Sua refeição favorita,<br>reservada com facilidade.</p>
+        <button class="ac__ghost-btn" id="panelSwitch">Criar conta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULÁRIOS -->
+  <div class="ac__forms-outer">
+    <div class="ac__forms-track" id="acTrack">
+
+      <!-- LOGIN -->
+      <div class="ac__form-page">
+        <div class="ac__form-inner">
+          <div class="ac__form-header">
+            <h1>Bem-vindo de volta</h1>
+            <p>Entre com seu e-mail e senha para continuar.</p>
+          </div>
+          <form id="formLogin" novalidate>
+            <div class="ac__field">
+              <label for="l-email">E-mail</label>
+              <input id="l-email" type="email" placeholder="seu@email.com" autocomplete="email">
+            </div>
+            <div class="ac__field">
+              <label for="l-pass">Senha</label>
+              <div class="ac__input-wrap">
+                <input id="l-pass" type="password" placeholder="Sua senha" autocomplete="current-password">
+                <button type="button" class="ac__eye" data-target="l-pass" aria-label="Mostrar senha">👁</button>
+              </div>
+            </div>
+            <div class="ac__row">
+              <label class="ac__check"><input type="checkbox"> Lembrar de mim</label>
+              <a href="#" class="ac__link">Esqueci a senha</a>
+            </div>
+            <p class="ac__error" id="loginError"></p>
+            <button type="submit" class="ac__btn">Entrar</button>
+          </form>
+          <p class="ac__switch">Não tem conta? <button class="ac__switch-btn" id="goRegister">Criar conta</button></p>
+          <a href="../index.html" class="ac__back">← Voltar ao início</a>
+        </div>
+      </div>
+
+      <!-- CADASTRO -->
+      <div class="ac__form-page">
+        <div class="ac__form-inner">
+          <div class="ac__form-header">
+            <h1>Criar conta</h1>
+            <p>Preencha os dados abaixo para se cadastrar.</p>
+          </div>
+          <form id="formRegister" novalidate>
+            <div class="ac__field">
+              <label>Tipo de acesso</label>
+              <div class="ac__tipo-row">
+                <label class="ac__tipo-card">
+                  <input type="radio" name="tipo" value="aluno" checked>
+                  <span class="ac__tipo-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                    Aluno
+                  </span>
+                </label>
+                <label class="ac__tipo-card">
+                  <input type="radio" name="tipo" value="professor">
+                  <span class="ac__tipo-box">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    Professor
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="ac__field">
+              <label for="r-name">Nome completo</label>
+              <input id="r-name" type="text" placeholder="Seu nome completo" autocomplete="name">
+            </div>
+            <div class="ac__field">
+              <label for="r-email">E-mail institucional</label>
+              <input id="r-email" type="email" placeholder="seu@sp.senai.br" autocomplete="email">
+            </div>
+            <div class="ac__field">
+              <label for="r-phone">Telefone</label>
+              <input id="r-phone" type="tel" placeholder="(11) 99999-9999" autocomplete="tel">
+            </div>
+            <div class="ac__2col">
+              <div class="ac__field">
+                <label for="r-pass">Senha</label>
+                <div class="ac__input-wrap">
+                  <input id="r-pass" type="password" placeholder="Mín. 8 caracteres" autocomplete="new-password">
+                  <button type="button" class="ac__eye" data-target="r-pass" aria-label="Mostrar senha">👁</button>
+                </div>
+              </div>
+              <div class="ac__field">
+                <label for="r-pass2">Confirmar</label>
+                <div class="ac__input-wrap">
+                  <input id="r-pass2" type="password" placeholder="Repita a senha" autocomplete="new-password">
+                  <button type="button" class="ac__eye" data-target="r-pass2" aria-label="Mostrar senha">👁</button>
+                </div>
+              </div>
+            </div>
+            <div class="ac__strength">
+              <div class="ac__strength-bar"><div id="sFill"></div></div>
+              <span id="sLabel">Força da senha</span>
+            </div>
+            <label class="ac__check ac__check--terms">
+              <input type="checkbox" id="termsCheck">
+              Li e aceito os <a href="#" class="ac__link">Termos de Uso</a> e a <a href="#" class="ac__link">Política de Privacidade</a>
+            </label>
+            <p class="ac__error" id="registerError"></p>
+            <button type="submit" class="ac__btn">Criar conta</button>
+          </form>
+          <p class="ac__switch">Já tem conta? <button class="ac__switch-btn" id="goLogin">Fazer login</button></p>
+          <a href="../index.html" class="ac__back">← Voltar ao início</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="../js/auth.js"></script>
+</body>
+</html>
